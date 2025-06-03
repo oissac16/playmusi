@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player com GIF</title>
+  <style>
+    body {
+      background-color: #000;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    img {
+      max-width: 300px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 300px;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #e63946;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #d62828;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="funny-itachi.gif" alt="GIF">
+  <h2>Insira o link da música e aperte Play</h2>
+
+  <input type="text" id="audioLink" placeholder="Cole aqui o link da música (.mp3)">
+  <div>
+    <button onclick="playAudio()">▶️ Play</button>
+    <button onclick="pauseAudio()">⏸️ Pause</button>
+  </div>
+
+  <audio id="audioPlayer" controls></audio>
+
+  <script>
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    function playAudio() {
+      const link = document.getElementById('audioLink').value;
+      if (link) {
+        audioPlayer.src = link;
+        audioPlayer.play();
+      } else {
+        alert('Por favor, insira um link válido!');
+      }
+    }
+
+    function pauseAudio() {
+      audioPlayer.pause();
+    }
+  </script>
+
+</body>
+</html>
